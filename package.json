@@ -1,0 +1,87 @@
+{
+    "name": "game-icons-font",
+    "version": "0.1.0",
+    "description": "The iconic font for game development",
+    "keywords": ["font", "game", "icons", "bootstrap"],
+    "homepage": "http://game-icons-font.net/",
+    "author": {
+        "name": "Tandit Viktor",
+        "email": "support@game-icons-font.net",
+        "web": "http://vk.com/tandit"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dragonmu/game-icons-font.git"
+    },
+    "license": "(Creative Commons 3.0 BY license)",
+    "contributors": [
+        {
+            "name": "Lorc",
+            "web": "http://lorcblog.blogspot.com"
+        },
+        {
+            "name": "Delapouite",
+            "web": "http://delapouite.com"
+        },
+        {
+            "name": "John Colburn",
+            "web": "http://ninmunanmu.com"
+        },
+        {
+            "name": "Felbrigg",
+            "web": "http://blackdogofdoom.blogspot.co.uk"
+        },
+        {
+            "name": "John Redman",
+            "web": "http://www.uniquedicetowers.com"
+        },
+        {
+            "name": "Carl Olsen",
+            "web": "https://twitter.com/unstoppableCarl"
+        },
+        {
+            "name": "sbed",
+            "web": "http://opengameart.org/content/95-game-icons"
+        },
+        {
+            "name": "PriorBlue",
+            "web": "http://forum.game-icons.net"
+        },
+        {
+            "name": "Willdabeast",
+            "web": "http://wjbstories.blogspot.com"
+        },
+        {
+            "name": "Viscious Speed",
+            "web": "http://viscious-speed.deviantart.com"
+        },
+        {
+            "name": "Lord Berandas",
+            "web": "http://berandas.deviantart.com"
+        },
+        {
+            "name": "Irongamer",
+            "web": "http://ecesisllc.wix.com/home"
+        },
+        {
+            "name": "HeavenlyDog",
+            "web": "http://www.gnomosygoblins.blogspot.com"
+        },
+        {
+            "name": "Various artists",
+            "web": "https://commons.wikimedia.org"
+        }
+    ],
+    "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-ttf2woff":"*",
+        "grunt-ttf2woff2":"*",
+        "grunt-ttf2eot":"*",
+        "grunt-contrib-jshint": "~0.1.1",
+        "grunt-contrib-nodeunit": "~0.1.2",
+        "grunt-contrib-less": "*",
+        "grunt-webfont": "~1.4.0",
+        "grunt-curl": "*",
+        "grunt-zip": "*"
+    }
+}

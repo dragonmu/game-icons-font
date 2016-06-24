@@ -1,0 +1,168 @@
+/* Font styles */
+@pathToFont: '../fonts/';
+
+<% if (fontfaceStyles) { %>
+@font-face {
+    font-family:"<%= fontBaseName %>";
+    src: url("@{pathToFont}<%= fontBaseName %>.eot") format('embedded-opentype');
+    src: 
+    <% if (fontSrc1) { %>
+        <%= fontSrc1 %>,
+    <% }%>
+    <%= fontSrc2 %>,
+    url("@{pathToFont}<%= fontBaseName %>.eot?#iefix") format('embedded-opentype'),
+    url("@{pathToFont}<%= fontBaseName %>.woff2") format('woff2'),
+    url("@{pathToFont}<%= fontBaseName %>.woff") format('woff');
+    font-weight:normal;
+    font-style:normal;
+}
+<% } %>
+<% if (baseStyles) { %>
+.gi {
+    font: normal normal normal 14px/1 <%= fontBaseName %>;
+    display:inline-block;
+    speak:none;
+    -webkit-font-smoothing:antialiased;
+}
+<% } %>
+
+/* Sizes classes */
+.<%= classPrefix %>lg {
+    font-size: (4em / 3);
+    line-height: (3em / 4);
+    vertical-align: -15%;
+}
+.<%= classPrefix %>2x { font-size: 2em; }
+.<%= classPrefix %>3x { font-size: 3em; }
+.<%= classPrefix %>4x { font-size: 4em; }
+.<%= classPrefix %>5x { font-size: 5em; }
+
+/* fix wieght */
+.<%= classPrefix %>fw {
+  width: (18em / 14);
+  text-align: center;
+}
+
+/* lists */
+.<%= classPrefix %>ul {
+  padding-left: 0;
+  margin-left: (30em / 14);
+  list-style-type: none;
+  > li { position: relative; }
+}
+.<%= classPrefix %>li {
+  position: absolute;
+  left: -(30em / 14);
+  width: (30em / 14);
+  top: (2em / 14);
+  text-align: center;
+  &.<%= classPrefix %>lg {
+    left: (-(30em / 14) + (4em / 14));
+  }
+}
+
+
+/* Animated Icons */
+.<%= classPrefix %>spin {
+  -webkit-animation: gi-spin 2s infinite linear;
+          animation: gi-spin 2s infinite linear;
+}
+
+.<%= classPrefix %>pulse {
+  -webkit-animation: gi-spin 1s infinite steps(8);
+          animation: gi-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes gi-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes gi-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+/* Rotated & Flipped Icons */
+.<%= classPrefix %>icon-rotate(@degrees, @rotation) {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=@rotation);
+  -webkit-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees);
+          transform: rotate(@degrees);
+}
+
+.<%= classPrefix %>icon-flip(@horiz, @vert, @rotation) {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=@rotation, mirror=1);
+  -webkit-transform: scale(@horiz, @vert);
+      -ms-transform: scale(@horiz, @vert);
+          transform: scale(@horiz, @vert);
+}
+
+.<%= classPrefix %>rotate-45  { .<%= classPrefix %>icon-rotate(45deg, 1);  }
+.<%= classPrefix %>rotate-90  { .<%= classPrefix %>icon-rotate(90deg, 1);  }
+.<%= classPrefix %>rotate-135 { .<%= classPrefix %>icon-rotate(135deg, 1); }
+.<%= classPrefix %>rotate-180 { .<%= classPrefix %>icon-rotate(180deg, 2); }
+.<%= classPrefix %>rotate-225 { .<%= classPrefix %>icon-rotate(225deg, 2); }
+.<%= classPrefix %>rotate-270 { .<%= classPrefix %>icon-rotate(270deg, 3); }
+.<%= classPrefix %>rotate-315 { .<%= classPrefix %>icon-rotate(315deg, 3); }
+
+.<%= classPrefix %>flip-horizontal { .<%= classPrefix %>icon-flip(-1, 1, 0); }
+.<%= classPrefix %>flip-vertical   { .<%= classPrefix %>icon-flip(1, -1, 2); }
+
+/* Hook for IE8-9 */
+:root .<%= classPrefix %>rotate-45,
+:root .<%= classPrefix %>rotate-90,
+:root .<%= classPrefix %>rotate-135,
+:root .<%= classPrefix %>rotate-180,
+:root .<%= classPrefix %>rotate-225,
+:root .<%= classPrefix %>rotate-270,
+:root .<%= classPrefix %>rotate-315,
+:root .<%= classPrefix %>flip-horizontal,
+:root .<%= classPrefix %>flip-vertical {
+  filter: none;
+}
+
+/* Stacked */
+.<%= classPrefix %>stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+.<%= classPrefix %>stack-1x, .<%= classPrefix %>stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.<%= classPrefix %>stack-1x { 
+    line-height: inherit;
+    font-size: 1.1em;
+}
+.<%= classPrefix %>stack-2x { font-size: 2em; }
+.<%= classPrefix %>inverse { color: #fff; }
+
+<% if (iconsStyles) { %>
+    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+        <% if(glyphs[glyphIdx]=='pulse') { %>
+              <% glyphs[glyphIdx]=glyphs[glyphIdx]+"-1"; %>
+        <% } %>
+.<%= classPrefix %><%= glyphs[glyphIdx] %>:before {
+    content:"\<%= codepoints[glyphIdx] %>";
+}
+    <% } %>
+<% } %>
