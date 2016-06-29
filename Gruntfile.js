@@ -85,7 +85,7 @@ module.exports = function (grunt) {
         }
     });
 
-    // Load the plugin that provides the “uglify” task.
+    // Load the plugin
     grunt.loadNpmTasks('grunt-webfont');
     grunt.loadNpmTasks('grunt-curl');
     grunt.loadNpmTasks('grunt-zip');
@@ -96,7 +96,9 @@ module.exports = function (grunt) {
 
     // Default task(s).
     grunt.registerTask('default', ['curl', 'unzip', 'webfont','ttf2woff','ttf2woff2','ttf2eot','less']);
+    //Only Compile font
+    grunt.registerTask('compilefont', ['webfont','ttf2woff','ttf2woff2','ttf2eot']);
     //Only Compile css
-    grunt.registerTask('compilecss', ['webfont','ttf2woff','ttf2woff2','ttf2eot','less']);
+    grunt.registerTask('compilecss', ['less']);
 
 };

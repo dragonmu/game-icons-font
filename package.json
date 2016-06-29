@@ -2,7 +2,7 @@
     "name": "game-icons-font",
     "version": "0.1.0",
     "description": "The iconic font for game development",
-    "keywords": ["font", "game", "icons", "bootstrap"],
+    "keywords": ["font", "game", "icons", "bootstrap", "gruntplugin"],
     "homepage": "http://game-icons-font.net/",
     "author": {
         "name": "Tandit Viktor",

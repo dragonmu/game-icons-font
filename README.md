@@ -2,6 +2,8 @@
 
 Create web font from all http://game-icons.net icons.
 
+Preview all font icons http://game-icons-font.net/full_list/.
+
 ## Installation
 
 This plugin requires Nodejs, npm, Grunt.
@@ -12,10 +14,14 @@ This plugin requires Nodejs, npm, Grunt.
 grunt default
 ```
 
-## Compile SRC (less,css,html,fonts)
+## Compile Font (fonts)
+
+```
+grunt compilefont
+```
+
+## Compile Css
 
 ```
 grunt compilecss
 ```
-
-

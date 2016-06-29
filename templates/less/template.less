@@ -149,17 +149,14 @@
   width: 100%;
   text-align: center;
 }
-.<%= classPrefix %>stack-1x { 
-    line-height: inherit;
-    font-size: 1.1em;
-}
+.<%= classPrefix %>stack-1x { font-size: 1em;line-height: inherit; }
 .<%= classPrefix %>stack-2x { font-size: 2em; }
 .<%= classPrefix %>inverse { color: #fff; }
 
 <% if (iconsStyles) { %>
     <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-        <% if(glyphs[glyphIdx]=='pulse') { %>
-              <% glyphs[glyphIdx]=glyphs[glyphIdx]+"-1"; %>
+        <% if(glyphs[glyphIdx]=='pulse' || glyphs[glyphIdx]=='stack') { %>
+              <% glyphs[glyphIdx]=glyphs[glyphIdx]+"-"+glyphIdx; %>
         <% } %>
 .<%= classPrefix %><%= glyphs[glyphIdx] %>:before {
     content:"\<%= codepoints[glyphIdx] %>";
